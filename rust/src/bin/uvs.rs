@@ -1,11 +1,11 @@
 use std::env;
 
-use des::read_1d_vector;
+use des::read_1d_array;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     let filename = &args[1];
-    let v = read_1d_vector(filename);
+    let v = read_1d_array(filename);
 
     let mut index: i64 = 0;
     let mut sum: f64 = 0.0;
