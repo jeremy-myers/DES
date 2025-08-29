@@ -1,25 +1,11 @@
-use std::{
-    env,
-    fs::File,
-    io::{prelude::*, BufReader},
-};
+use std::env;
 
-fn read_from_file(filename: &str) -> Vec<f64> {
-    let file = File::open(filename).expect("File not found");
-    let reader = BufReader::new(file);
-
-    let vector: Vec<f64> = reader
-        .lines()
-        .map(|line| line.unwrap().parse::<f64>().unwrap())
-        .collect();
-
-    vector
-}
+use des::read_1d_vector;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     let filename = &args[1];
-    let v = read_from_file(filename);
+    let v = read_1d_vector(filename);
 
     let mut index: i64 = 0;
     let mut sum: f64 = 0.0;
